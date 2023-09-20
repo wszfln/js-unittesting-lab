@@ -12,6 +12,14 @@ class Catalogue {
     return match;
   }
 
+  findProductsByNameLike(subString) {
+    const matches = this.products.filter(function(product) {
+      const position = product.name.search(subString)
+      return position !== -1
+    } )
+    return matches;
+  }
+
   addProduct(product) {
     if (!this.findProductById(product.id)) {
       this.products.push(product);
